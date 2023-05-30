@@ -61,7 +61,7 @@ export function useFetchProfile() {
 
 export function useFetchThreads(page) {
   return async (dispatch) => {
-    const response = await fetch(`${baseUrl}/threads/pagination/?page=1`,{
+    const response = await fetch(`${baseUrl}/threads/?page=1&limit=5`,{
       headers: {
         "x-auth-token": localStorage.getItem("x-auth-token")
       }
