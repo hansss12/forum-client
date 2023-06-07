@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import forumLogo from "../assets/forumLogo.png"
 import { useState } from "react";
 import { postData } from "../store/actions/action";
 import { useDispatch } from "react-redux";
@@ -35,20 +34,17 @@ export default function Login() {
 
     return (
         <>
-            <div className="flex min-h-full flex-1 flex-col justify-center py-12">
+            <div className="flex min-h-full flex-1 flex-col justify-start mt-20">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img
-                        className="mx-auto w-auto h-40"
-                        src={forumLogo}
-                        alt="Your Company"
-                    />
-                    <h2 className="text-center text-4xl font-bold leading-9 tracking-tight text-gray-900">
+                    <h2 className="text-start text-4xl font-medium leading-9 tracking-tight text-gray-900">
                         Welcome Back !
                     </h2>
-                    <h4 className="text-center mt-4">Sign to your account</h4>
+                    <h4 className="text-start mt-4">
+                        Enter your credential to access your account
+                    </h4>
                 </div>
 
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-20">
                     <form
                         className="space-y-6"
                         action="#"
@@ -72,7 +68,7 @@ export default function Login() {
                                     autoComplete="email"
                                     placeholder="jhondoe@gmail.com"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#4253ef] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
@@ -88,7 +84,7 @@ export default function Login() {
                                 <div className="text-sm">
                                     <a
                                         href="#"
-                                        className="font-semibold text-sky-500 hover:text-sky-500"
+                                        className="font-semibold text-[#4253ef] hover:text-[#4253ef]"
                                     >
                                         Forgot password?
                                     </a>
@@ -104,7 +100,7 @@ export default function Login() {
                                     autoComplete="current-password"
                                     placeholder="Password"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#4253ef] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
@@ -112,7 +108,7 @@ export default function Login() {
                         <div>
                             <button
                                 type="submit"
-                                className="flex w-full justify-center rounded-md bg-sky-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+                                className="flex w-full justify-center rounded-xl bg-[#4253ef] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#4253ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4253ef]"
                             >
                                 Sign in
                             </button>
@@ -123,7 +119,7 @@ export default function Login() {
                         Not a member?{" "}
                         <Link
                             to={"/register"}
-                            className="font-semibold leading-6 text-sky-500 hover:text-sky-500"
+                            className="font-semibold leading-6 text-[#4253ef] hover:text-[#4253ef]"
                         >
                             Register here
                         </Link>

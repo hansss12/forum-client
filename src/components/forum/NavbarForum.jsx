@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from "../../assets/142.jpg"
 
 export default function NavbarForum() {
     const navigation = useNavigate();
@@ -17,7 +16,9 @@ export default function NavbarForum() {
                 <div className="flex">
                     <div className="flex">
                         <img
-                            src={logo}
+                            src={
+                                "https://img.freepik.com/premium-vector/batik-garuda-silhouette_3264-142.jpg?w=1380"
+                            }
                             alt="logo"
                             className="w-6 h-6 mr-5 mt-1"
                         />

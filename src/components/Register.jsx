@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import forumLogo from "../assets/forumLogo.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { postData } from "../store/actions/action";
 import { useDispatch } from "react-redux";
 
@@ -36,23 +35,23 @@ export default function Register() {
 
     return (
         <>
-            <div className="flex min-h-full flex-1 flex-col justify-center">
+            <div className="flex min-h-full flex-1 flex-col justify-start mt-20">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img
-                        className="mx-auto w-auto h-40"
-                        src={forumLogo}
-                        alt="Your Company"
-                    />
-                    <h2 className="text-center text-4xl font-bold leading-9 tracking-tight text-gray-900">
-                        Hello There
+                    <h2 className="text-4xl font-medium leading-9 tracking-tight text-gray-900">
+                        Get Started Now
                     </h2>
-                    <h4 className="text-center mt-4">
-                        Register your account please
+                    <h4 className="mt-4">
+                        Register your credential to grant your account
                     </h4>
                 </div>
 
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" action="#" method="POST" onSubmit={register}>
+                <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-20">
+                    <form
+                        className="space-y-6"
+                        action="#"
+                        method="POST"
+                        onSubmit={register}
+                    >
                         <div>
                             <label
                                 htmlFor="username"
@@ -70,11 +69,10 @@ export default function Register() {
                                     autoComplete="username"
                                     placeholder="Jhon"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#4253ef] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
-
                         <div>
                             <label
                                 htmlFor="email"
@@ -92,11 +90,10 @@ export default function Register() {
                                     autoComplete="email"
                                     placeholder="jhondoe@gmail.com"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#4253ef] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
-
                         <div>
                             <div className="flex items-center justify-between">
                                 <label
@@ -108,7 +105,7 @@ export default function Register() {
                                 <div className="text-sm">
                                     <a
                                         href="#"
-                                        className="font-semibold text-sky-500 hover:text-sky-500"
+                                        className="font-semibold text-[#4253ef] hover:text-[#4253ef]"
                                     >
                                         Forgot password?
                                     </a>
@@ -124,28 +121,28 @@ export default function Register() {
                                     autoComplete="current-password"
                                     placeholder="Password"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#4253ef] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
-
                         <div>
                             <button
                                 type="submit"
-                                className="flex w-full justify-center rounded-md bg-sky-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+                                className="flex w-full justify-center rounded-xl bg-[#4253ef] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#4253ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4253ef]"
                             >
                                 Sign up
                             </button>
                         </div>
                     </form>
 
-                    <p className="mt-10 text-center text-sm text-gray-500">
-                        One of us?{" "}
+                    <p className="mt-10 text-start text-sm text-gray-500">
+                        Have an account ?{" "}
                         <Link
                             to={"/login"}
-                            className="font-semibold leading-6 text-sky-500 hover:text-sky-500"
+                            className="font-semibold leading-6 text-[#4253ef] hover:text-[#4253ef]"
                         >
-                            Login here
+                            {" "}
+                            Sign in
                         </Link>
                     </p>
                 </div>

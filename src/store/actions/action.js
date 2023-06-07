@@ -42,7 +42,7 @@ export function postData(url, data, method, type = "else") {
         localStorage.setItem("x-auth-token", res.data)
       }
     }
-
+    dispatch(useFetchThreads(1))
     return res;
   }
 }
@@ -55,6 +55,9 @@ export function useFetchProfile() {
       }
     })
     const {data} = await response.json();
+    if (!data) {
+      localStorage.removeItem("x-auth-token")
+    }
     dispatch(fetchProfileSucces(data))
   }
 }
@@ -67,6 +70,9 @@ export function useFetchThreads(page) {
       }
     })
     const { data } = await response.json();
+    if (!data) {
+      localStorage.removeItem("x-auth-token")
+    }
     dispatch(fetchthreadSucces(data))
   }
 }
