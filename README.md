@@ -2,9 +2,9 @@
 
 # in this new commit 
 
-- login v2 success
+- login v2 (SUCCESS)
 - login v3 soon with google credential login
-- thread detail ASAP
-- post thread success with no error 
-- post comment soon 
+- thread detail (SUCCESS)
+- post thread success with no error (done before)
+- post comment (SUCCESS)
 - and pagination soon 
