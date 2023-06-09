@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import logo from "../../assets/143.png";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import Modal from "./modal";
 
 export default function LayoutForum() {
@@ -10,13 +10,26 @@ export default function LayoutForum() {
   const profile = useSelector((state) => {
       return state.profileReducer.profile;
   });
+  console.log(profile);
+  const navigation = useLocation();
+
+  const inactive = "flex mt-7 cursor-pointer";
+  const active = "flex mt-7 cursor-pointer rounded-full bg-white mr-3";
   return (
       <div className="grid grid-cols-6 bg-[#f1eff3]">
           <div className="border-r-2">
               <div className="ml-[3rem]">
                   {/* sidebar */}
                   <Link to={"/forum/"}>
-                      <div className="flex mt-7 cursor-pointer">
+                      <div
+                          className={
+                              navigation.pathname == "/forum/" ||
+                              navigation.pathname == "/forum" ||
+                              navigation.pathname.includes("6")
+                                  ? active
+                                  : inactive
+                          }
+                      >
                           <div className="rounded-full bg-[#f9f9f9] p-2">
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +47,13 @@ export default function LayoutForum() {
                       </div>
                   </Link>
                   <Link to={"/forum/top"}>
-                      <div className="flex mt-7 cursor-pointer">
+                      <div
+                          className={
+                              navigation.pathname == "/forum/top"
+                                  ? active
+                                  : inactive
+                          }
+                      >
                           <div className="rounded-full bg-[#f9f9f9] p-2">
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +74,13 @@ export default function LayoutForum() {
                       </div>
                   </Link>
                   <Link to={"/forum/saved"}>
-                      <div className="flex mt-7 cursor-pointer">
+                      <div
+                          className={
+                              navigation.pathname == "/forum/saved"
+                                  ? active
+                                  : inactive
+                          }
+                      >
                           <div className="rounded-full bg-[#f9f9f9] p-2">
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +175,7 @@ export default function LayoutForum() {
                               <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                           </svg>
 
-                          <h1 className="text-sm ml-3">{profile.email}</h1>
+                          <h1 className="text-sm ml-3">{profile.email?.split("@")[0]}</h1>
                       </div>
                       <div className="flex justify-start w-full px-3 pt-2">
                           <svg

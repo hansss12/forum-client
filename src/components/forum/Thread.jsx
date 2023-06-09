@@ -14,7 +14,7 @@ export default function Thread() {
     })
     return (
         <div className="p-2">
-            {thread.threads?.map((el) => {
+            {thread?.threads?.map((el) => {
                 return (
                     <Link to={`/forum/${el._id}`}>
                         <Card data={el} />

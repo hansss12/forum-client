@@ -4,9 +4,18 @@ import buildFormatter from "react-timeago/lib/formatters/buildFormatter";
 const formatter = buildFormatter(frenchStrings);
 
 export default function Card({ data, type }) {
+    const like = async (id) => {
+        const res = await dispatch(
+            postData(`/v1/threads/like/${id}`, "", "POST")
+        );
+        if (!res.success) {
+            throw new Error(res.message);
+        }
+    };
+
     return (
         <>
-            <div className="bg-white rounded-xl mt-10" key={data.id}>
+            <div className="bg-white rounded-xl my-10" key={data.id}>
                 <div className="p-12">
                     <h1 className="text-3xl font-bold">{data.title}</h1>
                     <div className="flex justify-between mt-5">
@@ -37,7 +46,9 @@ export default function Card({ data, type }) {
                     <></> : 
                     <div className="flex justify-start mt-5">
                         <div className="flex">
-                            <div className="bg-[#f1eff3] p-2 rounded-xl mr-5 py-2 cursor-pointer">
+                            <div className="bg-[#f1eff3] p-2 rounded-xl mr-5 py-2 cursor-pointer" onClick={() => {
+                              like(data._id)
+                            }}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"

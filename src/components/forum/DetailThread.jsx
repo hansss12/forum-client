@@ -45,7 +45,14 @@ export default function DetailThread() {
     });
     dispatch(useFetchCommentThreads(id))
   }
-  
+
+  const like = async () => {
+      const res = await dispatch(postData(`threads/likes/${id}`, form, "POST"));
+      if (!res.success) {
+          throw new Error(res.message);
+      }
+  };
+
     return (
         <div className="p-2">
             <div className="bg-white rounded-xl mb-10">
@@ -78,22 +85,26 @@ export default function DetailThread() {
                         </button>
                         <button
                             type="button"
+                            onClick={() => {
+                              like()
+                            }}
                             className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
                         >
                             <svg
-                                aria-hidden="true"
-                                className="w-6 h-6"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6"
                             >
                                 <path
-                                    fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z"
-                                    clip-rule="evenodd"
-                                ></path>
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                                />
                             </svg>
-                            <span className="sr-only">Add emoji</span>
+                            <span className="sr-only">Like</span>
                         </button>
                         <textarea
                             id="chat"
@@ -122,14 +133,18 @@ export default function DetailThread() {
                     </div>
                 </form>
             </div>
-            <div className="bg-white rounded-xl pb-10 mb-10">
-              <h1 className="pt-10 pl-10 text-3xl font-semibold pb-2">Comments</h1>
-              <div className="overflow-scroll max-h-[50vh]">
-                {comment.map((el) => {
-                    return <Comment data={el} key={el.id} />;
-                })}
+            {comment?.length == 0 ? <></> :
+              <div className="bg-white rounded-xl pb-10 mb-10">
+                  <h1 className="pt-10 pl-10 text-3xl font-semibold pb-2">
+                      Comments
+                  </h1>
+                  <div className="overflow-scroll max-h-[50vh]">
+                      {comment.map((el) => {
+                          return <Comment data={el} key={el.id} />;
+                      })}
+                  </div>
               </div>
-            </div>
+            }
         </div>
     );
 }
