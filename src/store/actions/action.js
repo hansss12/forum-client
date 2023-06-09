@@ -14,6 +14,20 @@ export function fetchthreadSucces(data) {
   }
 }
 
+export function fetchthreadDetailSucces(data) {
+  return {
+    type: "thread/fetchdetailSuccess",
+    payload: data,
+  }
+}
+
+export function fetchCommentSuccess(data) {
+  return {
+    type: "thread/fetchCommentSuccess",
+    payload: data,
+  }
+}
+
 export function fetchProfileSucces(data) {
   return {
     type: "profile/fetchSuccess",
@@ -43,6 +57,7 @@ export function postData(url, data, method, type = "else") {
       }
     }
     dispatch(useFetchThreads(1))
+    dispatch(useFetchTopThreads())
     return res;
   }
 }
@@ -86,5 +101,29 @@ export function useFetchTopThreads() {
     })
     const { data } = await response.json();
     dispatch(fetchthreadTopSuccess(data))
+  }
+}
+
+export function useFetchDetailThreads(id) {
+  return async (dispatch) => {
+    const response = await fetch(`${baseUrl}/threads/${id}`, {
+      headers: {
+        "x-auth-token": localStorage.getItem("x-auth-token")
+      }
+    })
+    const { data } = await response.json();
+    dispatch(fetchthreadDetailSucces(data))
+  }
+}
+
+export function useFetchCommentThreads(id) {
+  return async (dispatch) => {
+    const response = await fetch(`${baseUrl}/threads/comments/${id}`, {
+      headers: {
+        "x-auth-token": localStorage.getItem("x-auth-token")
+      }
+    })
+    const { data } = await response.json();
+    dispatch(fetchCommentSuccess(data))
   }
 }

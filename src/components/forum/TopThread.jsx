@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useFetchTopThreads } from "../../store/actions/action";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 export default function TopThread() {
   const dispatch = useDispatch();
@@ -13,10 +14,12 @@ export default function TopThread() {
     return state.threadReducer.topThread
   })
     return (
-        <div className="pt-10">
+        <div className="p-2">
             {top?.map((el) => {
                 return (
-                    <Card data={el}/>
+                    <Link to={`/forum/${el._id}`}>
+                        <Card data={el}/>
+                    </Link>
                 );
             })}
         </div>

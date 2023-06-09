@@ -3,10 +3,10 @@ import frenchStrings from "react-timeago/lib/language-strings/en";
 import buildFormatter from "react-timeago/lib/formatters/buildFormatter";
 const formatter = buildFormatter(frenchStrings);
 
-export default function Card({ data }) {
+export default function Card({ data, type }) {
     return (
         <>
-            <div className="bg-white rounded-xl mb-10" key={data.id}>
+            <div className="bg-white rounded-xl mt-10" key={data.id}>
                 <div className="p-12">
                     <h1 className="text-3xl font-bold">{data.title}</h1>
                     <div className="flex justify-between mt-5">
@@ -33,6 +33,8 @@ export default function Card({ data }) {
                         </div>
                     </div>
                     <p className="mt-10 font-light">{data.description}</p>
+                    {type === "detail" ?
+                    <></> : 
                     <div className="flex justify-start mt-5">
                         <div className="flex">
                             <div className="bg-[#f1eff3] p-2 rounded-xl mr-5 py-2 cursor-pointer">
@@ -62,6 +64,7 @@ export default function Card({ data }) {
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
             </div>
         </>

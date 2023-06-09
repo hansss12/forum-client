@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFetchThreads } from "../../store/actions/action";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 export default function Thread() {
     const dispatch = useDispatch()
@@ -12,10 +13,12 @@ export default function Thread() {
         return state.threadReducer.threads
     })
     return (
-        <div className="pt-10">
+        <div className="p-2">
             {thread.threads?.map((el) => {
                 return (
-                    <Card data={el} />
+                    <Link to={`/forum/${el._id}`}>
+                        <Card data={el} />
+                    </Link>
                 );
             })}
         </div>

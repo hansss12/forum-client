@@ -7,6 +7,7 @@ import LayoutForum from "../components/forum/LayoutForum";
 import Thread from "../components/forum/Thread";
 import TopThread from "../components/forum/TopThread";
 import Saved from "../components/forum/Saved";
+import DetailThread from "../components/forum/DetailThread";
 
 const router = createBrowserRouter([
     {
@@ -30,17 +31,21 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "/forum/",
-                        element: <Thread />
+                        element: <Thread />,
                     },
                     {
                         path: "/forum/top",
-                        element: <TopThread />
+                        element: <TopThread />,
                     },
                     {
                         path: "/forum/saved",
-                        element: <Saved />
-                    }
-                ]
+                        element: <Saved />,
+                    },
+                    {
+                        path: "/forum/:id",
+                        element: <DetailThread />,
+                    },
+                ],
             },
         ],
     },
