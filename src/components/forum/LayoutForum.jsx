@@ -10,7 +10,6 @@ export default function LayoutForum() {
   const profile = useSelector((state) => {
       return state.profileReducer.profile;
   });
-  console.log(profile);
   const navigation = useLocation();
 
   const inactive = "flex mt-7 cursor-pointer";
@@ -101,45 +100,6 @@ export default function LayoutForum() {
                       </div>
                   </Link>
                   {/* finish */}
-                  {/* community */}
-                  <div className="mt-10">
-                      <div className="flex">
-                          <h1 className="text-l text-[#8b8b8b] mr-2">
-                              Community {`(${community.length})`}
-                          </h1>
-                          <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              className="w-6 h-6 text-[#a4a4a4] text-xl"
-                          >
-                              <path
-                                  fillRule="evenodd"
-                                  d="M3.22 3.22a.75.75 0 011.06 0l3.97 3.97V4.5a.75.75 0 011.5 0V9a.75.75 0 01-.75.75H4.5a.75.75 0 010-1.5h2.69L3.22 4.28a.75.75 0 010-1.06zm17.56 0a.75.75 0 010 1.06l-3.97 3.97h2.69a.75.75 0 010 1.5H15a.75.75 0 01-.75-.75V4.5a.75.75 0 011.5 0v2.69l3.97-3.97a.75.75 0 011.06 0zM3.75 15a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-2.69l-3.97 3.97a.75.75 0 01-1.06-1.06l3.97-3.97H4.5a.75.75 0 01-.75-.75zm10.5 0a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-2.69l3.97 3.97a.75.75 0 11-1.06 1.06l-3.97-3.97v2.69a.75.75 0 01-1.5 0V15z"
-                                  clipRule="evenodd"
-                              />
-                          </svg>
-                      </div>
-                      {community.map((el) => {
-                          return (
-                              <div className="flex mt-4" key={el.id}>
-                                  <div className="rounded-full bg-[#f9f9f9] w-12 mr-3">
-                                      <img
-                                          src={el.img}
-                                          alt="photo"
-                                          className="rounded-full"
-                                      />
-                                  </div>
-                                  <div className="mt-1">
-                                      <h3 className="text-l">{el.type}</h3>
-                                      <h3 className="text-xs">
-                                          {el.type.slice(0, 2) + el.color}
-                                      </h3>
-                                  </div>
-                              </div>
-                          );
-                      })}
-                  </div>
               </div>
           </div>
           <div className="col-span-4 h-[90vh] w-full px-10 overflow-auto">

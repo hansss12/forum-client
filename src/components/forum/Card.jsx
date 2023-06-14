@@ -1,6 +1,8 @@
 import TimeAgo from "react-timeago";
 import frenchStrings from "react-timeago/lib/language-strings/en";
 import buildFormatter from "react-timeago/lib/formatters/buildFormatter";
+import { generateAvatar } from "./avatar";
+import { useSelector } from "react-redux";
 const formatter = buildFormatter(frenchStrings);
 
 export default function Card({ data, type }) {
@@ -12,6 +14,13 @@ export default function Card({ data, type }) {
             throw new Error(res.message);
         }
     };
+    const profile = useSelector((state) => {
+        return state.profileReducer.profile;
+    });
+    const avatar = async () => {
+      const generatedAvatar = await generateAvatar(profile.username)
+      return generatedAvatar
+    }
 
     return (
         <>
@@ -36,9 +45,6 @@ export default function Card({ data, type }) {
                                     />
                                 </h1>
                             </div>
-                        </div>
-                        <div className="p-2 px-5 bg-[#efeaff] text-[#9571ff] rounded-xl h-fit font-semibold">
-                            Language
                         </div>
                     </div>
                     <p className="mt-10 font-light">{data.description}</p>

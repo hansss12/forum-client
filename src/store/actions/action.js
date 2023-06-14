@@ -35,7 +35,7 @@ export function fetchProfileSucces(data) {
   }
 }
 
-export function postData(url, data, method, type = "else") {
+export function postData(url, data, method, type = "else", id) {
   return async (dispatch) => {
     const response = await fetch(`${baseUrl}/${url}`, {
       method: method,

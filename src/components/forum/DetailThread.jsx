@@ -6,6 +6,7 @@ import Card from "./Card"
 import Comment from "./Comment"
 
 export default function DetailThread() {
+  const [loading, setLoading] = useState(false)
   const {id} = useParams()
   const dispatch = useDispatch()
   const [form, setForm] = useState({
@@ -35,6 +36,8 @@ export default function DetailThread() {
             `threads/comments/${id}`,
             form,
             "POST",
+            "",
+            id
         )
     );
     if (!res.success) {
@@ -56,7 +59,15 @@ export default function DetailThread() {
     return (
         <div className="p-2">
             <div className="bg-white rounded-xl mb-10">
-                <Card data={thread} type={"detail"} />
+                {!loading ? (
+                    <Card data={thread} type={"detail"} />
+                ) : (
+                    <div className="flex items-center justify-center space-x-2">
+                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+                    </div>
+                )}
 
                 <form onSubmit={postComment}>
                     <label for="chat" className="sr-only">
@@ -67,26 +78,12 @@ export default function DetailThread() {
                             type="button"
                             className="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="w-6 h-6"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                                />
-                            </svg>
-                            <span className="sr-only">Write Comment</span>
+                            {thread?.likes}
                         </button>
                         <button
                             type="button"
                             onClick={() => {
-                              like()
+                                like();
                             }}
                             className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
                         >
@@ -133,18 +130,20 @@ export default function DetailThread() {
                     </div>
                 </form>
             </div>
-            {comment?.length == 0 ? <></> :
-              <div className="bg-white rounded-xl pb-10 mb-10">
-                  <h1 className="pt-10 pl-10 text-3xl font-semibold pb-2">
-                      Comments
-                  </h1>
-                  <div className="overflow-scroll max-h-[50vh]">
-                      {comment.map((el) => {
-                          return <Comment data={el} key={el.id} />;
-                      })}
-                  </div>
-              </div>
-            }
+            {comment?.length == 0 ? (
+                <></>
+            ) : (
+                <div className="bg-white rounded-xl pb-10 mb-10">
+                    <h1 className="pt-10 pl-10 text-3xl font-semibold pb-2">
+                        Comments
+                    </h1>
+                    <div className="overflow-scroll max-h-[50vh]">
+                        {comment.map((el) => {
+                            return <Comment data={el} key={el.id} />;
+                        })}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
