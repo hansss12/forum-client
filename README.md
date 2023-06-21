@@ -1,6 +1,9 @@
 # GARUDA Forum
 
-## description
+## Description
+
+* [Raihan aqil fadillah](https://github.com/hansss12) as Front - End
+* [Teten Nugraha](https://github.com/teten-nugraha) as Back - End
 
 I am excited to introduce my latest project, 'Garuda Forum,' a dynamic, user-friendly forum developed using the powerful React library. Garuda Forum is designed to provide a platform for users to interact, share ideas, and engage in enriching discussions through threads.
 
