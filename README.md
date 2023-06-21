@@ -26,26 +26,47 @@ Together, we bridge the gap between user interactions and server responses, crea
 ## Preview
 
 * Landing Page
+
+<br>
+
 ![landing](./screenshot/landing.png) 
 ![community](./screenshot/community.png)
 ![footer](./screenshot/footer.png)
 
 * Login / Register
+
+<br>
+
 ![login](./screenshot/login.png)
 
 * Forum Home 
+
+<br>
+
 ![home](./screenshot/home.png)
 
 * Forum Saved
+
+<br>
+
 ![saved](./screenshot/saved.png)
 
 * Forum Top
+
+<br>
+
 ![saved](./screenshot/top.png)
 
 * Comment Thread
+
+<br>
+
 ![comment](./screenshot/Comment.png)
 
 * Post Thread
+
+<br>
+
 ![post](./screenshot/post.png)
 
 #### Project v1 finished at 12 - 06 - 2023
