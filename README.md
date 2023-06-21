@@ -26,21 +26,21 @@ Together, we bridge the gap between user interactions and server responses, crea
 ## Preview
 
 * Landing Page
-! [landing](./screenshot/landing.png) 
-! [community](./screenshot/community.png)
-! [footer](./screenshot/footer.png)
+![landing](./screenshot/landing.png) 
+![community](./screenshot/community.png)
+![footer](./screenshot/footer.png)
 
 * Login / Register
-! [login](./screenshot/login.png)
+![login](./screenshot/login.png)
 
 * Forum Home 
-! [home](./screenshot/home.png)
+![home](./screenshot/home.png)
 
 * Forum Saved
-! [saved](./screenshot/saved.png)
+![saved](./screenshot/saved.png)
 
 * Forum Top
-! [saved](./screenshot/top.png)
+![saved](./screenshot/top.png)
 
 * Comment Thread
 ! [comment](./screenshot/Comment.png)
