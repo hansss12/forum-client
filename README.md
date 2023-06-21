@@ -10,8 +10,12 @@ This project demonstrates my dedication to creating meaningful user experiences 
 
 ## Team
 
+### Member
+
 * [Raihan aqil fadillah](https://github.com/hansss12) as Front - End
 * [Teten Nugraha](https://github.com/teten-nugraha) as Back - End
+
+### Contribution
 
 I am contributing as a Front-End Developer, leveraging my skills in HTML, CSS, JavaScript, and ReactJS to create an intuitive and responsive user interface. My focus is to ensure an engaging, user-friendly experience, making complex functionalities accessible and simple for our users.
 
@@ -21,4 +25,27 @@ Together, we bridge the gap between user interactions and server responses, crea
 
 ## Preview
 
-* Login
+* Landing Page
+! [landing](./screenshot/landing.png) 
+! [community](./screenshot/community.png)
+! [footer](./screenshot/footer.png)
+
+* Login / Register
+! [login](./screenshot/login.png)
+
+* Forum Home 
+! [home](./screenshot/home.png)
+
+* Forum Saved
+! [saved](./screenshot/saved.png)
+
+* Forum Top
+! [saved](./screenshot/top.png)
+
+* Comment Thread
+! [comment](./screenshot/Comment.png)
+
+* Post Thread
+! [post](./screenshot/post.png)
+
+#### Project v1 finished at 12 - 06 - 2023
