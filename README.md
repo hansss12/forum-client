@@ -43,9 +43,9 @@ Together, we bridge the gap between user interactions and server responses, crea
 ![saved](./screenshot/top.png)
 
 * Comment Thread
-! [comment](./screenshot/Comment.png)
+![comment](./screenshot/Comment.png)
 
 * Post Thread
-! [post](./screenshot/post.png)
+![post](./screenshot/post.png)
 
 #### Project v1 finished at 12 - 06 - 2023
